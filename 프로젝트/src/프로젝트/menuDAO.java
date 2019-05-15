@@ -155,7 +155,7 @@ public class menuDAO {
 			System.out.println("3.sql문전송");
 			rs = ps.executeQuery();
 			System.out.println("4.sql문 완료");
-			if(rs.next()) {
+			while(rs.next()) {
 				dto = new menuDTO();
 				String name = rs.getString(1);
 				String content = rs.getString(2);

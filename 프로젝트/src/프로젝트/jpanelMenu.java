@@ -6,11 +6,15 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class jpanelMenu extends JPanel{
 	private JTextField textField;
+	private JFrameMain win;
 
-	public jpanelMenu() {
+	public jpanelMenu(JFrameMain win) {
+		this.win = win;
 		setSize(500, 500);
 		
 		setLayout(null);
@@ -29,13 +33,19 @@ public class jpanelMenu extends JPanel{
 //		add(button[3]);
 		
 		
-		JButton b1 = new JButton();
+		JButton b1 = new JButton(); //상의버튼
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				win.change("Jpanel02");
+			}
+		});
 		b1.setBackground(Color.WHITE);
 		b1.setForeground(Color.GREEN);
 		b1.setFont(new Font("굴림", Font.BOLD, 25));
 		b1.setText("\uC0C1\uC758");
 		add(b1);
 		b1.setBounds(0, 62, 125, 50);
+		
 		
 		JButton button_1 = new JButton();
 		button_1.setBackground(Color.WHITE);
