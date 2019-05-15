@@ -15,7 +15,7 @@ public class jpanelMenu extends JPanel{
 
 	public jpanelMenu(JFrameMain win) {
 		this.win = win;
-		setSize(500, 500);
+		setSize(536, 563);
 		
 		setLayout(null);
 		
@@ -44,42 +44,53 @@ public class jpanelMenu extends JPanel{
 		b1.setFont(new Font("±¼¸²", Font.BOLD, 25));
 		b1.setText("\uC0C1\uC758");
 		add(b1);
-		b1.setBounds(0, 62, 125, 50);
+		b1.setBounds(0, 74, 125, 50);
 		
 		
-		JButton button_1 = new JButton();
-		button_1.setBackground(Color.WHITE);
-		button_1.setForeground(Color.BLUE);
-		button_1.setFont(new Font("±¼¸²", Font.BOLD, 25));
-		button_1.setText("\uD558\uC758");
-		button_1.setBounds(123, 62, 125, 50);
-		add(button_1);
+		JButton b2 = new JButton();
+		b2.setBackground(Color.WHITE);
+		b2.setForeground(Color.BLUE);
+		b2.setFont(new Font("±¼¸²", Font.BOLD, 25));
+		b2.setText("\uD558\uC758");
+		b2.setBounds(123, 74, 125, 50);
+		add(b2);
 		
-		JButton button_2 = new JButton();
-		button_2.setBackground(Color.WHITE);
-		button_2.setForeground(new Color(0, 0, 0));
-		button_2.setFont(new Font("±¼¸²", Font.BOLD, 25));
-		button_2.setText("\uC2E0\uBC1C");
-		button_2.setBounds(248, 62, 125, 50);
-		add(button_2);
+		JButton b3 = new JButton();
+		b3.setBackground(Color.WHITE);
+		b3.setForeground(new Color(0, 0, 0));
+		b3.setFont(new Font("±¼¸²", Font.BOLD, 25));
+		b3.setText("\uC2E0\uBC1C");
+		b3.setBounds(248, 74, 125, 50);
+		add(b3);
 		
-		JButton button_3 = new JButton();
-		button_3.setBackground(Color.WHITE);
-		button_3.setForeground(Color.PINK);
-		button_3.setFont(new Font("±¼¸²", Font.BOLD, 25));
-		button_3.setText("\uC544\uC6B0\uD130");
-		button_3.setBounds(375, 62, 125, 50);
-		add(button_3);
+		JButton b4 = new JButton();
+		b4.setBackground(Color.WHITE);
+		b4.setForeground(Color.PINK);
+		b4.setFont(new Font("±¼¸²", Font.BOLD, 25));
+		b4.setText("\uC544\uC6B0\uD130");
+		b4.setBounds(375, 74, 125, 50);
+		add(b4);
 		
-		JLabel label = new JLabel("\uC0C1\uD488\uAC80\uC0C9");
+		JLabel label = new JLabel("\uC0C1\uD488\uC785\uB825");
 		label.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		label.setBounds(12, 23, 93, 29);
 		add(label);
 		
 		textField = new JTextField();
-		textField.setBounds(117, 23, 306, 27);
+		textField.setBounds(105, 26, 306, 27);
 		add(textField);
 		textField.setColumns(10);
+		
+		JButton b5 = new JButton("\uAC80\uC0C9");
+		b5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menuDAO dao = new menuDAO();
+				
+			}
+		});
+		b5.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		b5.setBounds(423, 28, 97, 23);
+		add(b5);
 		
 		setVisible(true);
 	}

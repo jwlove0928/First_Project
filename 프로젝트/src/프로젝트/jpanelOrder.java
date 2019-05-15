@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class jpanelOrder extends JPanel{
 	private JTextField textField;
@@ -22,10 +27,16 @@ public class jpanelOrder extends JPanel{
 	
 	public int witch = 0;
 	private JFrameMain win;
+	private JButton b2;
+	private JButton b3;
+	private JButton b4;
+	private JButton b5;
+	private JButton b6;
+	private JButton b7;
 
 	public jpanelOrder(JFrameMain win) {
 		this.win = win;
-		setSize(500, 500);
+		setSize(546, 579);
 		setLayout(null);
 		
 		String[] pic = {"c1.jpg","c2.jpg","c3.jpg","c4.jpg","c5.jpg"};
@@ -66,7 +77,7 @@ public class jpanelOrder extends JPanel{
 		ArrayList list = dao.selectAll();
 		System.out.println(list.size());
 			menuDTO dto = (menuDTO)list.get(0);
-			textField.setText("제품이름 : " + dto.getName() + "제품내용 : " + dto.getContent());
+			textField.setText("제품이름 : " + dto.getName() + " 제품내용 : " + dto.getContent());
 		add(textField);
 		textField.setColumns(10);
 		
@@ -80,7 +91,7 @@ public class jpanelOrder extends JPanel{
 		textField_2.setColumns(10);
 		textField_2.setBounds(162, 102, 253, 29);
 			menuDTO dto1 = (menuDTO)list.get(1);
-			textField_2.setText("제품이름 : " + dto1.getName() + "제품내용 : " + dto1.getContent());
+			textField_2.setText("제품이름 : " + dto1.getName() + " 제품내용 : " + dto1.getContent());
 		add(textField_2);
 		
 		textField_3 = new JTextField();
@@ -122,11 +133,52 @@ public class jpanelOrder extends JPanel{
 		textField_9.setBounds(162, 430, 253, 29);
 		add(textField_9);
 		
+		JButton b1 = new JButton("\uC8FC\uBB38");
+		b1.setBackground(Color.CYAN);
+		b1.setFont(new Font("굴림", Font.BOLD, 20));
+		b1.setBounds(437, 34, 97, 42);
+		add(b1);
 		
+		b2 = new JButton("\uC8FC\uBB38");
+		b2.setFont(new Font("굴림", Font.BOLD, 20));
+		b2.setBackground(Color.CYAN);
+		b2.setBounds(437, 116, 97, 42);
+		add(b2);
 		
+		b3 = new JButton("\uC8FC\uBB38");
+		b3.setFont(new Font("굴림", Font.BOLD, 20));
+		b3.setBackground(Color.CYAN);
+		b3.setBounds(437, 202, 97, 42);
+		add(b3);
 		
+		b4 = new JButton("\uC8FC\uBB38");
+		b4.setFont(new Font("굴림", Font.BOLD, 20));
+		b4.setBackground(Color.CYAN);
+		b4.setBounds(437, 300, 97, 42);
+		add(b4);
 		
+		b5 = new JButton("\uC8FC\uBB38");
+		b5.setFont(new Font("굴림", Font.BOLD, 20));
+		b5.setBackground(Color.CYAN);
+		b5.setBounds(437, 398, 97, 42);
+		add(b5);
 		
+		b6 = new JButton("\uC8FC\uBB38\uACB0\uC81C");
+		b6.setBackground(Color.GREEN);
+		b6.setFont(new Font("굴림", Font.BOLD, 20));
+		b6.setBounds(116, 500, 123, 49);
+		add(b6);
+		
+		b7 = new JButton("\uB4A4\uB85C"); //뒤로가기 버튼
+		b7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				win.change("jpanelMenu");
+			}
+		});
+		b7.setBackground(Color.GREEN);
+		b7.setFont(new Font("굴림", Font.BOLD, 20));
+		b7.setBounds(301, 500, 123, 49);
+		add(b7);
 		
 		setVisible(true);
 		

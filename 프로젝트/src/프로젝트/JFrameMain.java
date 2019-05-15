@@ -16,6 +16,8 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class JFrameMain extends JFrame{
+	public JFrameMain() {
+	}
 	
 	public jpanelMenu Jpanel01 = null;
 	public jpanelOrder Jpanel02 = null;
@@ -35,17 +37,18 @@ public class JFrameMain extends JFrame{
 		}
 	
 	}
+	
 	public static void main(String[] args) {
 		
 		JFrameMain win = new JFrameMain();
 
-		win.setLayout(null);
+		win.getContentPane().setLayout(null);
 		
 		win.setTitle("main frame");
 		win.Jpanel01 = new jpanelMenu(win);
 		win.Jpanel02 = new jpanelOrder(win);
 		
-		win.add(win.Jpanel01);
+		win.getContentPane().add(win.Jpanel01);
 		win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		win.setSize(1000, 1000);
 		win.setVisible(true);
