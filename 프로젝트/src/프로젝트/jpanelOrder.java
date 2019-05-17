@@ -36,6 +36,16 @@ public class jpanelOrder extends JPanel {
 	private JButton b7;
 	static String name;
 	static String price;
+	private JLabel lblNewLabel;
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	private JLabel label_3;
+	private JLabel label_4;
+	private JLabel label_5;
+	private JLabel label_6;
+	private JLabel label_7;
+	private JLabel label_8;
 	public jpanelOrder(JFrameMain win) {
 		this.win = win;
 		setSize(546, 579);
@@ -74,7 +84,8 @@ public class jpanelOrder extends JPanel {
 		lb5.setIcon(icon5);
 		
 		textField = new JTextField();
-		textField.setBounds(162, 17, 253, 29);
+		textField.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		textField.setBounds(271, 17, 144, 29);
 		menuDAO dao = new menuDAO();
 		ArrayList list = dao.selectAll();
 		System.out.println(list.size());
@@ -86,69 +97,78 @@ public class jpanelOrder extends JPanel {
 		textField.setEditable(false);
 		
 		textField_1 = new JTextField();
+		textField_1.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_1.setColumns(10);
-		textField_1.setBounds(162, 63, 253, 29);
-			textField_1.setText(dto.getPrice());
+		textField_1.setBounds(271, 63, 144, 29);
+			textField_1.setText(dto.getPrice() + "¿ø");
 		add(textField_1);
 		price = textField_1.getText();
 		textField_1.setEditable(false);
 		
 		textField_2 = new JTextField();
+		textField_2.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_2.setColumns(10);
-		textField_2.setBounds(162, 102, 253, 29);
+		textField_2.setBounds(271, 102, 144, 29);
 			menuDTO dto1 = (menuDTO)list.get(1);
 			textField_2.setText(dto1.getName());
 		add(textField_2);
 		textField_2.setEditable(false);
 		
 		textField_3 = new JTextField();
+		textField_3.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_3.setColumns(10);
-		textField_3.setBounds(162, 148, 253, 29);
-			textField_3.setText(dto1.getPrice());
+		textField_3.setBounds(271, 148, 144, 29);
+			textField_3.setText(dto1.getPrice() + "¿ø");
 		add(textField_3);
 		textField_3.setEditable(false);
 		
 		textField_4 = new JTextField();
+		textField_4.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_4.setColumns(10);
-		textField_4.setBounds(162, 187, 253, 29);
+		textField_4.setBounds(271, 187, 144, 29);
 			menuDTO dto2 = (menuDTO)list.get(2);
 			textField_4.setText(dto2.getName());
 		add(textField_4);
 		textField_4.setEditable(false);
 		
 		textField_5 = new JTextField();
+		textField_5.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_5.setColumns(10);
-		textField_5.setBounds(162, 233, 253, 29);
+		textField_5.setBounds(271, 233, 144, 29);
 			textField_5.setText(dto2.getPrice());
 		add(textField_5);
 		textField_5.setEditable(false);
 		
 		textField_6 = new JTextField();
+		textField_6.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_6.setColumns(10);
-		textField_6.setBounds(162, 285, 253, 29);
+		textField_6.setBounds(271, 285, 144, 29);
 			menuDTO dto3 = (menuDTO)list.get(3);
 			textField_6.setText(dto3.getName());
 		add(textField_6);
 		textField_6.setEditable(false);
 		
 		textField_7 = new JTextField();
+		textField_7.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_7.setColumns(10);
-		textField_7.setBounds(162, 331, 253, 29);
+		textField_7.setBounds(271, 331, 144, 29);
 			textField_7.setText(dto3.getPrice());
 		add(textField_7);
 		textField_7.setEditable(false);
 		
 		textField_8 = new JTextField();
+		textField_8.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_8.setColumns(10);
-		textField_8.setBounds(162, 384, 253, 29);
+		textField_8.setBounds(271, 384, 144, 29);
 			menuDTO dto4 = (menuDTO)list.get(4);
 			textField_8.setText(dto4.getName());
 		add(textField_8);
 		textField_8.setEditable(false);
 		
 		textField_9 = new JTextField();
+		textField_9.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		textField_9.setColumns(10);
-		textField_9.setBounds(162, 430, 253, 29);
+		textField_9.setBounds(271, 430, 144, 29);
 			textField_9.setText(dto4.getPrice());
 		add(textField_9);
 		textField_9.setEditable(false);
@@ -203,6 +223,56 @@ public class jpanelOrder extends JPanel {
 		b7.setFont(new Font("±¼¸²", Font.BOLD, 20));
 		b7.setBounds(201, 498, 123, 49);
 		add(b7);
+		
+		lblNewLabel = new JLabel("\uC81C\uD488\uC774\uB984");
+		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		lblNewLabel.setBounds(162, 17, 97, 29);
+		add(lblNewLabel);
+		
+		label = new JLabel("\uC81C\uD488\uAC00\uACA9");
+		label.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label.setBounds(162, 63, 97, 29);
+		add(label);
+		
+		label_1 = new JLabel("\uC81C\uD488\uC774\uB984");
+		label_1.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label_1.setBounds(162, 102, 97, 29);
+		add(label_1);
+		
+		label_2 = new JLabel("\uC81C\uD488\uAC00\uACA9");
+		label_2.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label_2.setBounds(162, 148, 97, 29);
+		add(label_2);
+		
+		label_3 = new JLabel("\uC81C\uD488\uC774\uB984");
+		label_3.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label_3.setBounds(162, 187, 97, 29);
+		add(label_3);
+		
+		label_4 = new JLabel("\uC81C\uD488\uAC00\uACA9");
+		label_4.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label_4.setBounds(162, 233, 97, 29);
+		add(label_4);
+		
+		label_5 = new JLabel("\uC81C\uD488\uC774\uB984");
+		label_5.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label_5.setBounds(162, 285, 97, 29);
+		add(label_5);
+		
+		label_6 = new JLabel("\uC81C\uD488\uAC00\uACA9");
+		label_6.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label_6.setBounds(162, 331, 97, 29);
+		add(label_6);
+		
+		label_7 = new JLabel("\uC81C\uD488\uC774\uB984");
+		label_7.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label_7.setBounds(162, 384, 97, 29);
+		add(label_7);
+		
+		label_8 = new JLabel("\uC81C\uD488\uAC00\uACA9");
+		label_8.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		label_8.setBounds(162, 430, 97, 29);
+		add(label_8);
 		
 		setVisible(true);
 		
