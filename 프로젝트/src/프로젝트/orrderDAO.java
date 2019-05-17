@@ -22,7 +22,7 @@ public class orrderDAO {
 			
 			con = DriverManager.getConnection(url, user, password);
 			
-			String sql = "select * from orrder where uid = ?";
+			String sql = "select * from orrder where number = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, inputId);
 			
@@ -30,12 +30,12 @@ public class orrderDAO {
 			
 			if(rs.next()) {
 				dto = new orrderDTO();
-				String uid = rs.getString(1);
-				String pid = rs.getString(2);
-				String date = rs.getString(3);
-				dto.setUid(uid);
-				dto.setPid(pid);
-				dto.setDate(date);
+				String pname = rs.getString(1);
+				String price = rs.getString(2);
+				String user = rs.getString(3);
+				dto.setPname(pname);
+				dto.setPrice(price);
+				dto.setUser(user);
 			}else {
 				System.out.println("검색결과가 없습니다.");
 			}
@@ -59,12 +59,12 @@ public class orrderDAO {
 			
 			con = DriverManager.getConnection(url, user, password);
 			
-			String sql1 = "insert into orrder values (?,?,?)";
+			String sql1 = "insert into orrder values (null,?,?,?)";
 			
 			ps = con.prepareStatement(sql1);
-			ps.setString(1, dto.getUid());
-			ps.setString(2, dto.getPid());
-			ps.setString(3, dto.getDate());
+			ps.setString(1, dto.getPname());
+			ps.setString(2, dto.getPrice());
+			ps.setString(3, dto.getUser());
 			
 			ps.executeUpdate();
 			
@@ -72,64 +72,11 @@ public class orrderDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
 				ps.close();
 				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-	}//insert close
-	public void update(orrderDTO dto) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			con = DriverManager.getConnection(url, user, password);
-			
-			String sql2 = "update orrder set pid = ?, date = ?, where uid = ?";
-			
-			ps = con.prepareStatement(sql2);
-			ps.setString(1, dto.getPid());
-			ps.setString(2, dto.getDate());
-			ps.setString(3, dto.getUid());
-			
-			ps.executeUpdate();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				rs.close();
-				ps.close();
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-	}//update close
-	public void delete(orrderDTO dto) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			con = DriverManager.getConnection(url,user,password);
-			
-			String sql3 = "delete from orrder where uid = ?";
-			
-			ps = con.prepareStatement(sql3);
-			ps.setString(1, dto.getUid());
-			
-			ps.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				rs.close();
-				ps.close();
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	} //delete close
+	}
 }

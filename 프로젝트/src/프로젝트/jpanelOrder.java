@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -13,7 +14,8 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class jpanelOrder extends JPanel{
+public class jpanelOrder extends JPanel {
+	
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -31,9 +33,9 @@ public class jpanelOrder extends JPanel{
 	private JButton b3;
 	private JButton b4;
 	private JButton b5;
-	private JButton b6;
 	private JButton b7;
-
+	static String name;
+	static String price;
 	public jpanelOrder(JFrameMain win) {
 		this.win = win;
 		setSize(546, 579);
@@ -77,97 +79,119 @@ public class jpanelOrder extends JPanel{
 		ArrayList list = dao.selectAll();
 		System.out.println(list.size());
 			menuDTO dto = (menuDTO)list.get(0);
-			textField.setText("제품이름 : " + dto.getName() + " 제품내용 : " + dto.getContent());
+			textField.setText(dto.getName());
 		add(textField);
 		textField.setColumns(10);
+		name = textField.getText();
+		textField.setEditable(false);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(162, 63, 253, 29);
-			textField_1.setText("제품가격 : " + dto.getPrice());
+			textField_1.setText(dto.getPrice());
 		add(textField_1);
+		price = textField_1.getText();
+		textField_1.setEditable(false);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(162, 102, 253, 29);
 			menuDTO dto1 = (menuDTO)list.get(1);
-			textField_2.setText("제품이름 : " + dto1.getName() + " 제품내용 : " + dto1.getContent());
+			textField_2.setText(dto1.getName());
 		add(textField_2);
+		textField_2.setEditable(false);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(162, 148, 253, 29);
-			textField_3.setText("제품가격 : " + dto1.getPrice());
+			textField_3.setText(dto1.getPrice());
 		add(textField_3);
+		textField_3.setEditable(false);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(162, 187, 253, 29);
 			menuDTO dto2 = (menuDTO)list.get(2);
-			textField_4.setText("제품이름 : " + dto2.getName() + "제품내용 : " + dto2.getContent());
+			textField_4.setText(dto2.getName());
 		add(textField_4);
+		textField_4.setEditable(false);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
 		textField_5.setBounds(162, 233, 253, 29);
-			textField_5.setText("제품가격 : " + dto2.getPrice());
+			textField_5.setText(dto2.getPrice());
 		add(textField_5);
+		textField_5.setEditable(false);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
 		textField_6.setBounds(162, 285, 253, 29);
+			menuDTO dto3 = (menuDTO)list.get(3);
+			textField_6.setText(dto3.getName());
 		add(textField_6);
+		textField_6.setEditable(false);
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
 		textField_7.setBounds(162, 331, 253, 29);
+			textField_7.setText(dto3.getPrice());
 		add(textField_7);
+		textField_7.setEditable(false);
 		
 		textField_8 = new JTextField();
 		textField_8.setColumns(10);
 		textField_8.setBounds(162, 384, 253, 29);
+			menuDTO dto4 = (menuDTO)list.get(4);
+			textField_8.setText(dto4.getName());
 		add(textField_8);
+		textField_8.setEditable(false);
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
 		textField_9.setBounds(162, 430, 253, 29);
+			textField_9.setText(dto4.getPrice());
 		add(textField_9);
+		textField_9.setEditable(false);
 		
-		JButton b1 = new JButton("\uC8FC\uBB38");
+		JButton b1 = new JButton("\uC120\uD0DD"); //선택버튼
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				jframePay pay = new jframePay(win);
+			}
+		});
 		b1.setBackground(Color.CYAN);
 		b1.setFont(new Font("굴림", Font.BOLD, 20));
 		b1.setBounds(437, 34, 97, 42);
 		add(b1);
 		
-		b2 = new JButton("\uC8FC\uBB38");
+		b2 = new JButton("\uC120\uD0DD");
 		b2.setFont(new Font("굴림", Font.BOLD, 20));
 		b2.setBackground(Color.CYAN);
 		b2.setBounds(437, 116, 97, 42);
 		add(b2);
 		
-		b3 = new JButton("\uC8FC\uBB38");
+		b3 = new JButton("\uC120\uD0DD");
+		b3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		b3.setFont(new Font("굴림", Font.BOLD, 20));
 		b3.setBackground(Color.CYAN);
 		b3.setBounds(437, 202, 97, 42);
 		add(b3);
 		
-		b4 = new JButton("\uC8FC\uBB38");
+		b4 = new JButton("\uC120\uD0DD");
 		b4.setFont(new Font("굴림", Font.BOLD, 20));
 		b4.setBackground(Color.CYAN);
 		b4.setBounds(437, 300, 97, 42);
 		add(b4);
 		
-		b5 = new JButton("\uC8FC\uBB38");
+		b5 = new JButton("\uC120\uD0DD");
 		b5.setFont(new Font("굴림", Font.BOLD, 20));
 		b5.setBackground(Color.CYAN);
 		b5.setBounds(437, 398, 97, 42);
 		add(b5);
-		
-		b6 = new JButton("\uC8FC\uBB38\uACB0\uC81C");
-		b6.setBackground(Color.GREEN);
-		b6.setFont(new Font("굴림", Font.BOLD, 20));
-		b6.setBounds(116, 500, 123, 49);
-		add(b6);
 		
 		b7 = new JButton("\uB4A4\uB85C"); //뒤로가기 버튼
 		b7.addActionListener(new ActionListener() {
@@ -177,7 +201,7 @@ public class jpanelOrder extends JPanel{
 		});
 		b7.setBackground(Color.GREEN);
 		b7.setFont(new Font("굴림", Font.BOLD, 20));
-		b7.setBounds(301, 500, 123, 49);
+		b7.setBounds(201, 498, 123, 49);
 		add(b7);
 		
 		setVisible(true);

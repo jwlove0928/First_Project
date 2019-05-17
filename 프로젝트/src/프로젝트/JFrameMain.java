@@ -50,7 +50,7 @@ public class JFrameMain extends JFrame{
 		
 		win.getContentPane().add(win.Jpanel01);
 		win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		win.setSize(1000, 1000);
+		win.setSize(600, 600);
 		win.setVisible(true);
 	}
 }	

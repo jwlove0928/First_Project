@@ -9,6 +9,7 @@ public class menuDTO {
 	private String price;
 	private String company;
 	
+
 	public menuDTO() {
 		
 	}
