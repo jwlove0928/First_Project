@@ -1,5 +1,6 @@
 package 프로젝트;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -14,26 +15,19 @@ import java.awt.event.ActionEvent;
 public class jpanelMenu extends JPanel{
 	private JTextField textField;
 	private JFrameMain win;
+	static int number1;
+	static String pname1;
+	static String price1;
+	static String image1;
+	private JTextField Loginid;
+	private JTextField Loginpw;
+	
 
 	public jpanelMenu(JFrameMain win) {
 		this.win = win;
-		setSize(536, 563);
+		setSize(900, 900);
 		
 		setLayout(null);
-		
-//		JButton[] button = new JButton[4];
-//		for (int i = 0; i < button.length; i++) {
-//			button[i] = new JButton("버튼" + i);
-//		}
-//		button[0].setBounds(50, 50, 150, 100);
-//		add(button[0]);
-//		button[1].setBounds(200, 50, 150, 50);
-//		add(button[1]);
-//		button[2].setBounds(350, 50, 150, 50);
-//		add(button[2]);
-//		button[3].setBounds(500, 50, 150, 50);
-//		add(button[3]);
-		
 		
 		JButton b1 = new JButton(); //상의버튼
 		b1.addActionListener(new ActionListener() {
@@ -46,7 +40,7 @@ public class jpanelMenu extends JPanel{
 		b1.setFont(new Font("굴림", Font.BOLD, 25));
 		b1.setText("\uC0C1\uC758");
 		add(b1);
-		b1.setBounds(12, 74, 125, 50);
+		b1.setBounds(281, 151, 125, 50);
 		
 		
 		JButton b2 = new JButton();
@@ -54,7 +48,7 @@ public class jpanelMenu extends JPanel{
 		b2.setForeground(Color.BLUE);
 		b2.setFont(new Font("굴림", Font.BOLD, 25));
 		b2.setText("\uD558\uC758");
-		b2.setBounds(137, 74, 125, 50);
+		b2.setBounds(439, 151, 125, 50);
 		add(b2);
 		
 		JButton b3 = new JButton();
@@ -62,7 +56,7 @@ public class jpanelMenu extends JPanel{
 		b3.setForeground(new Color(0, 0, 0));
 		b3.setFont(new Font("굴림", Font.BOLD, 25));
 		b3.setText("\uC2E0\uBC1C");
-		b3.setBounds(260, 74, 125, 50);
+		b3.setBounds(598, 151, 125, 50);
 		add(b3);
 		
 		JButton b4 = new JButton();
@@ -70,43 +64,108 @@ public class jpanelMenu extends JPanel{
 		b4.setForeground(Color.PINK);
 		b4.setFont(new Font("굴림", Font.BOLD, 25));
 		b4.setText("\uC544\uC6B0\uD130");
-		b4.setBounds(385, 74, 125, 50);
+		b4.setBounds(763, 151, 125, 50);
 		add(b4);
 		
 		JLabel label = new JLabel("\uC0C1\uD488\uC785\uB825");
 		label.setFont(new Font("굴림", Font.BOLD, 20));
-		label.setBounds(12, 23, 93, 29);
+		label.setBounds(316, 100, 90, 29);
 		add(label);
 		
 		textField = new JTextField();
-		textField.setBounds(105, 26, 306, 27);
+		textField.setBounds(438, 103, 306, 27);
 		add(textField);
-		String input = textField.getText();
 		textField.setColumns(10);
 		
 		JButton b5 = new JButton("\uAC80\uC0C9"); //검색버튼
 		b5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String input = textField.getText();
+				menuDAO dao = new menuDAO();
+				menuDTO dto = dao.select(input);
+				String p1 = dto.getPname();
+				String p2 = dto.getPrice();
+				String p3 = dto.getImage();
+				pname1 = p1;
+				price1 = p2;
+				image1 = p3;
 				
-//				menuDTO dto = new menuDTO();
-//				menuDAO dao = new menuDAO();
-//				dao.select(inputId);
-//				if(inputId.equals(input)) {
-//				String name = dto.getName();
-//				String content = dto.getContent();
-//				String price = dto.getPrice();
-//				}else {
-//					JOptionPane.showMessageDialog(null, "잘못된 입력값입니다. 다시 입력해주세요");
-//				}
+				jpanelSelect select = new jpanelSelect();
 			}
 		});
 		b5.setFont(new Font("굴림", Font.BOLD, 15));
-		b5.setBounds(423, 28, 97, 23);
+		b5.setBounds(791, 105, 97, 23);
 		add(b5);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(12, 134, 492, 291);
-		add(lblNewLabel);
+		JLabel eventlabel = new JLabel("New label");
+		eventlabel.setBounds(281, 211, 607, 328);
+		add(eventlabel);
+		
+		JLabel toplabel = new JLabel("");
+		toplabel.setBounds(0, 0, 900, 71);
+		ImageIcon icon = new ImageIcon("1.png");
+		add(toplabel);
+		toplabel.setIcon(icon);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLACK);
+		panel.setBounds(0, 100, 246, 900);
+		add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("\uC544\uC774\uB514");
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(12, 117, 57, 15);
+		panel.add(lblNewLabel_2);
+		
+		JLabel label_1 = new JLabel("\uBE44\uBC00\uBC88\uD638");
+		label_1.setForeground(Color.WHITE);
+		label_1.setFont(new Font("굴림", Font.BOLD, 15));
+		label_1.setBounds(12, 160, 72, 15);
+		panel.add(label_1);
+		
+		Loginid = new JTextField();
+		Loginid.setBounds(96, 114, 116, 21);
+		panel.add(Loginid);
+		Loginid.setColumns(10);
+		
+		Loginpw = new JTextField();
+		Loginpw.setColumns(10);
+		Loginpw.setBounds(96, 157, 116, 21);
+		panel.add(Loginpw);
+		
+		JButton Loginbutton = new JButton("\uB85C\uADF8\uC778");
+		Loginbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				MemberDAO dao = new MemberDAO();
+				
+				String id = Loginid.getText();
+				String pw = Loginpw.getText();
+				
+				MemberDTO dto = dao.select(Loginid.getText());
+				if(id.equals(dto.getId()) && pw.equals(dto.getPw())) {
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "아이디가 틀렸습니다.");
+				}
+				
+			}
+		});
+		Loginbutton.setFont(new Font("굴림", Font.BOLD, 15));
+		Loginbutton.setBounds(12, 215, 97, 23);
+		panel.add(Loginbutton);
+		
+		JButton Insertbutton = new JButton("\uD68C\uC6D0\uAC00\uC785"); //회원가입 버튼
+		Insertbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Memberinsert insert = new Memberinsert();
+			}
+		});
+		Insertbutton.setFont(new Font("굴림", Font.BOLD, 15));
+		Insertbutton.setBounds(121, 215, 97, 23);
+		panel.add(Insertbutton);
 		
 		setVisible(true);
 	}

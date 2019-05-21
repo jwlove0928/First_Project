@@ -46,6 +46,7 @@ public class jpanelOrder extends JPanel {
 	private JLabel label_6;
 	private JLabel label_7;
 	private JLabel label_8;
+	
 	public jpanelOrder(JFrameMain win) {
 		this.win = win;
 		setSize(546, 579);
@@ -90,7 +91,7 @@ public class jpanelOrder extends JPanel {
 		ArrayList list = dao.selectAll();
 		System.out.println(list.size());
 			menuDTO dto = (menuDTO)list.get(0);
-			textField.setText(dto.getName());
+			textField.setText(dto.getPname());
 		add(textField);
 		textField.setColumns(10);
 		name = textField.getText();
@@ -110,7 +111,7 @@ public class jpanelOrder extends JPanel {
 		textField_2.setColumns(10);
 		textField_2.setBounds(271, 102, 144, 29);
 			menuDTO dto1 = (menuDTO)list.get(1);
-			textField_2.setText(dto1.getName());
+			textField_2.setText(dto1.getPname());
 		add(textField_2);
 		textField_2.setEditable(false);
 		
@@ -127,7 +128,7 @@ public class jpanelOrder extends JPanel {
 		textField_4.setColumns(10);
 		textField_4.setBounds(271, 187, 144, 29);
 			menuDTO dto2 = (menuDTO)list.get(2);
-			textField_4.setText(dto2.getName());
+			textField_4.setText(dto2.getPname());
 		add(textField_4);
 		textField_4.setEditable(false);
 		
@@ -144,7 +145,7 @@ public class jpanelOrder extends JPanel {
 		textField_6.setColumns(10);
 		textField_6.setBounds(271, 285, 144, 29);
 			menuDTO dto3 = (menuDTO)list.get(3);
-			textField_6.setText(dto3.getName());
+			textField_6.setText(dto3.getPname());
 		add(textField_6);
 		textField_6.setEditable(false);
 		
@@ -161,7 +162,7 @@ public class jpanelOrder extends JPanel {
 		textField_8.setColumns(10);
 		textField_8.setBounds(271, 384, 144, 29);
 			menuDTO dto4 = (menuDTO)list.get(4);
-			textField_8.setText(dto4.getName());
+			textField_8.setText(dto4.getPname());
 		add(textField_8);
 		textField_8.setEditable(false);
 		

@@ -1,62 +1,54 @@
 package 프로젝트;
 
 public class menuDTO {
-	private String id;
-	private String name;
-	private String sort;
-	private String content;
-	private String image;
-	private String price;
-	private String company;
-	
+	String pname;
+	String price;
+	int number;
+	String image;
+	String kind;
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
 
 	public menuDTO() {
 		
 	}
-	
-	public String getId() {
-		return id;
-		
+
+	public String getPname() {
+		return pname;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getSort() {
-		return sort;
-	}
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+
 	public String getPrice() {
 		return price;
 	}
+
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getCompany() {
-		return company;
-	}
-	public void setCompany(String company) {
-		this.company = company;
-	}
-	
 	
 }

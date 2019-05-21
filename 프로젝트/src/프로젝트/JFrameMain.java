@@ -14,9 +14,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Panel;
+import java.awt.BorderLayout;
 
 public class JFrameMain extends JFrame{
 	public JFrameMain() {
+		
 	}
 	
 	public jpanelMenu Jpanel01 = null;
@@ -35,22 +38,25 @@ public class JFrameMain extends JFrame{
 			repaint();
 			revalidate();
 		}
+		
+		getContentPane().setLayout(null);
 	
 	}
 	
 	public static void main(String[] args) {
 		
 		JFrameMain win = new JFrameMain();
-
+		
 		win.getContentPane().setLayout(null);
 		
 		win.setTitle("main frame");
 		win.Jpanel01 = new jpanelMenu(win);
 		win.Jpanel02 = new jpanelOrder(win);
 		
+		
 		win.getContentPane().add(win.Jpanel01);
 		win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		win.setSize(600, 600);
+		win.setSize(950, 900);
 		win.setVisible(true);
 	}
 }	

@@ -22,7 +22,7 @@ public class orrderDAO {
 			
 			con = DriverManager.getConnection(url, user, password);
 			
-			String sql = "select * from orrder where number = ?";
+			String sql = "select * from orrder where pname = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, inputId);
 			

@@ -23,7 +23,7 @@ public class menuDAO {
 			
 			con = DriverManager.getConnection(url, user, password);
 			
-			String sql = "select * from menu where id = ?";
+			String sql = "select * from menu where pname = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, inputId);
 			
@@ -31,20 +31,16 @@ public class menuDAO {
 			
 			if(rs.next()) {
 				dto = new menuDTO();
-				String id = rs.getString(1);
-				String name = rs.getString(2);
-				String sort = rs.getString(3);
-				String content = rs.getString(4);
-				String image = rs.getString(5);
-				String price = rs.getString(6);
-				String company = rs.getString(7);
-				dto.setId(id);
-				dto.setName(name);
-				dto.setSort(sort);
-				dto.setContent(content);
-				dto.setImage(image);
+				int number = rs.getInt(1);
+				String pname = rs.getString(2);
+				String price = rs.getString(3);
+				String image = rs.getString(4);
+				String kind = rs.getString(5);
+				dto.setNumber(number);
+				dto.setPname(pname);
 				dto.setPrice(price);
-				dto.setCompany(company);
+				dto.setImage(image);
+				dto.setKind(kind);
 			}else {
 				System.out.println("검색결과가 없습니다.");
 			}
@@ -68,12 +64,11 @@ public class menuDAO {
 			
 			con = DriverManager.getConnection(url, user, password);
 			
-			String sql1 = "insert into menu values (?,?,?)";
+			String sql1 = "insert into menu values (null,?,?)";
 			
 			ps = con.prepareStatement(sql1);
-			ps.setString(2, dto.getName());
-			ps.setString(4, dto.getContent());
-			ps.setString(6, dto.getPrice());
+			ps.setString(1, dto.getPname());
+			ps.setString(2, dto.getPrice());
 			
 			ps.executeUpdate();
 			
@@ -94,13 +89,12 @@ public class menuDAO {
 			
 			con = DriverManager.getConnection(url, user, password);
 			
-			String sql2 = "update menu set name = ?, content = ?, price = ? where name = ?";
+			String sql2 = "update menu set pname = ?, price = ? where number = ?";
 			
 			ps = con.prepareStatement(sql2);
-			ps.setString(1, dto.getName());
-			ps.setString(2, dto.getContent());
-			ps.setString(3, dto.getPrice());
-			ps.setString(4, dto.getName());
+			ps.setString(1, dto.getPname());
+			ps.setString(2, dto.getPrice());
+			ps.setInt(3, dto.getNumber());
 			
 			ps.executeUpdate();
 			
@@ -122,10 +116,10 @@ public class menuDAO {
 			
 			con = DriverManager.getConnection(url,user,password);
 			
-			String sql3 = "delete from menu where name = ?";
+			String sql3 = "delete from menu where number = ?";
 			
 			ps = con.prepareStatement(sql3);
-			ps.setString(1, dto.getName());
+			ps.setInt(1, dto.getNumber());
 			
 			ps.executeUpdate();
 		} catch (Exception e) {
@@ -157,12 +151,14 @@ public class menuDAO {
 			System.out.println("4.sql문 완료");
 			while(rs.next()) {
 				dto = new menuDTO();
-				String name = rs.getString(1);
-				String content = rs.getString(2);
+				int number = rs.getInt(1);
+				String pname = rs.getString(2);
 				String price = rs.getString(3);
-				dto.setName(name);
-				dto.setContent(content);
+				String kind = rs.getString(4);
+				dto.setNumber(number);
+				dto.setPname(pname);
 				dto.setPrice(price);
+				dto.setKind(kind);
 				list.add(dto);
 			}
 		} catch (Exception e) {
