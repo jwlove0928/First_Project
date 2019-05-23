@@ -1,10 +1,29 @@
 package 프로젝트;
 
+import javax.swing.ImageIcon;
+
 public class menuDTO {
 	String pname;
 	String price;
 	int number;
 	String image;
+	String kind;
+	
+	
+
+	@Override
+	public String toString() {
+		return "menuDTO [pname=" + pname + ", price=" + price + ", number=" + number + ", image=" + image + ", kind="
+				+ kind + "]";
+	}
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
 
 	public String getImage() {
 		return image;

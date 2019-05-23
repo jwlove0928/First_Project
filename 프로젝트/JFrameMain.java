@@ -23,7 +23,10 @@ public class JFrameMain extends JFrame{
 	}
 	
 	public jpanelMenu Jpanel01 = null;
-	public jpanelOrder Jpanel02 = null;
+	public jpanelshirt Jpanel02 = null;
+	public jpanelpants Jpanel03 = null;
+	public jpanelshose Jpanel04 = null;
+	public jpanelouter Jpanel05 = null;
 	
 	public void change(String panelName) {
 	
@@ -32,9 +35,24 @@ public class JFrameMain extends JFrame{
 			getContentPane().add(Jpanel01);
 			revalidate();
 			repaint();
-		}else {
+		}else if(panelName.equals("jpanelshirt")){
 			getContentPane().removeAll();
 			getContentPane().add(Jpanel02);
+			repaint();
+			revalidate();
+		}else if(panelName.equals("jpanelpants")) {
+			getContentPane().removeAll();
+			getContentPane().add(Jpanel03);
+			repaint();
+			revalidate();
+		}else if(panelName.equals("jpanelshose")) {
+			getContentPane().removeAll();
+			getContentPane().add(Jpanel04);
+			repaint();
+			revalidate();
+		}else {
+			getContentPane().removeAll();
+			getContentPane().add(Jpanel05);
 			repaint();
 			revalidate();
 		}
@@ -51,12 +69,15 @@ public class JFrameMain extends JFrame{
 		
 		win.setTitle("main frame");
 		win.Jpanel01 = new jpanelMenu(win);
-		win.Jpanel02 = new jpanelOrder(win);
+		win.Jpanel02 = new jpanelshirt(win);
+		win.Jpanel03 = new jpanelpants(win);
+		win.Jpanel04 = new jpanelshose(win);
+		win.Jpanel05 = new jpanelouter(win);
 		
 		
 		win.getContentPane().add(win.Jpanel01);
 		win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		win.setSize(1200, 900);
+		win.setSize(950, 900);
 		win.setVisible(true);
 	}
 }	

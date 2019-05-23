@@ -16,31 +16,33 @@ public class menuDAO {
 	PreparedStatement ps;
 	ResultSet rs;
 	
-	public menuDTO select(String inputId) {
+	public ArrayList kindselect(String inputId) {
+		ArrayList list = new ArrayList();
 		menuDTO dto = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			con = DriverManager.getConnection(url, user, password);
 			
-			String sql = "select * from menu where pname = ?";
+			String sql = "select * from menu where kind = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, inputId);
 			
 			rs = ps.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				dto = new menuDTO();
 				int number = rs.getInt(1);
 				String pname = rs.getString(2);
 				String price = rs.getString(3);
 				String image = rs.getString(4);
+				String kind = rs.getString(5);
 				dto.setNumber(number);
 				dto.setPname(pname);
 				dto.setPrice(price);
 				dto.setImage(image);
-			}else {
-				System.out.println("검색결과가 없습니다.");
+				dto.setKind(kind);
+				list.add(dto);
 			}
 			
 		} catch (Exception e) {
@@ -54,7 +56,7 @@ public class menuDAO {
 				e.printStackTrace();
 			}
 		}
-		return dto;
+		return list;
 	}//select close
 	public void insert(menuDTO dto) {
 		try {
@@ -131,30 +133,27 @@ public class menuDAO {
 			}
 		}
 	} //delete close
-	public ArrayList selectAll() {
+	public ArrayList selectlist(String inputpname) {
 		ArrayList list = new ArrayList();
 		menuDTO dto = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("1.Driver연결");
 			
 			con = DriverManager.getConnection(url,user,password);
-			System.out.println("2.DB연결");
 			
-			String sql4 = "select * from menu";
+			String sql4 = "select * from menu where pname = ?";
 			
 			ps = con.prepareStatement(sql4);
-			System.out.println("3.sql문전송");
+			ps.setString(1, inputpname);
 			rs = ps.executeQuery();
-			System.out.println("4.sql문 완료");
 			while(rs.next()) {
 				dto = new menuDTO();
-				int number = rs.getInt(1);
-				String pname = rs.getString(2);
-				String price = rs.getString(3);
-				dto.setNumber(number);
+				String pname = rs.getString(1);
+				String price = rs.getString(2);
+				String image = rs.getString(4);
 				dto.setPname(pname);
 				dto.setPrice(price);
+				dto.setImage(image);
 				list.add(dto);
 			}
 		} catch (Exception e) {
@@ -169,5 +168,39 @@ public class menuDAO {
 			}
 		}
 		return list;
+	}
+	public menuDTO getnumber(int number) {
+		menuDTO dto = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			con = DriverManager.getConnection(url,user,password);
+			
+			String sql4 = "select * from menu where number = ?";
+			
+			ps = con.prepareStatement(sql4);
+			ps.setInt(1, number);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto = new menuDTO();
+				String pname = rs.getString(2);
+				String price = rs.getString(3);
+				String image = rs.getString(4);
+				dto.setPname(pname);
+				dto.setPrice(price);
+				dto.setImage(image);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				ps.close();
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return dto;
 	}
 }

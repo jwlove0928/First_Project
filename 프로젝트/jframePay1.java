@@ -14,12 +14,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class jframePay extends JFrame {
+public class jframePay1 extends JFrame {
 	
 	private JTextField textField;
 	private JTextField textField_1;
 	
-	public jframePay() {
+	public jframePay1() {
 		
 		
 //		String realname = jpanelshirt.name;
@@ -27,7 +27,7 @@ public class jframePay extends JFrame {
 //		ImageIcon realimage = jpanelshirt.image;
 		
 		menuDAO dao = new menuDAO();
-		int getnumber = jpanelshirt.number;
+		int getnumber = jpanelpants.number;
 		menuDTO	dto = dao.getnumber(getnumber);
 		String pname = dto.getPname();
 		String price = dto.getPrice();
@@ -74,10 +74,9 @@ public class jframePay extends JFrame {
 				
 				orrderDAO dao = new orrderDAO();
 				orrderDTO dto = new orrderDTO();
-				
 				dto.setPname(pname);
 				dto.setPrice(price);
-				dto.setUser("bbb");
+				dto.setUser("aaa");
 				
 				dao.insert(dto);
 				dispose();

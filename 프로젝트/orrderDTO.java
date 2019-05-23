@@ -6,6 +6,13 @@ public class orrderDTO {
 	private String price;
 	private String user;
 	
+	
+	
+	@Override
+	public String toString() {
+		return "orrderDTO [pname=" + pname + ", price=" + price + ", user=" + user + "]";
+	}
+
 	public orrderDTO() {
 		
 	}

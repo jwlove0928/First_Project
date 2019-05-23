@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class orrderDAO {
 
@@ -15,16 +16,16 @@ public class orrderDAO {
 	PreparedStatement ps;
 	ResultSet rs;
 	
-	public orrderDTO select(String inputId) {
+	public ArrayList shows() {
+		ArrayList list = new ArrayList();
 		orrderDTO dto = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			con = DriverManager.getConnection(url, user, password);
 			
-			String sql = "select * from orrder where pname = ?";
+			String sql = "select * from orrder";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, inputId);
 			
 			rs = ps.executeQuery();
 			
@@ -51,7 +52,7 @@ public class orrderDAO {
 				e.printStackTrace();
 			}
 		}
-		return dto;
+		return list;
 	}//select close
 	public void insert(orrderDTO dto) {
 		try {
